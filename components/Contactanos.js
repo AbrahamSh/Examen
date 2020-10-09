@@ -1,6 +1,6 @@
 import  React, {Component} from 'react';
 import { TextInput } from 'react-native';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,Linking} from 'react-native';
 import Communications from 'react-native-communications';
 // either import the whole module and call as Communications.phonecall('0123456789', true)
 // or can import single methods and call straight via the method name
@@ -11,7 +11,7 @@ export default class Contactanos extends Component{
 constructor(props) {
    super(props);
    this.state = {
-     telefono: '',
+     telefono: '5540560365',
      emails:''
    };
  }
@@ -19,17 +19,10 @@ constructor(props) {
 
   render() {
     return (
+      
       <View style={styles.container}>
         <Text style={styles.headingStyle}>Ejemplo de  React Native Communication</Text>
         
-       <Text style={{color: 'red'}}>Teléfono</Text>
-       <TextInput
-         value={this.state.telefono}
-         onChangeText={(telefono) => this.setState({ telefono })}
-         placeholder={'Escribe el telefono a marcar y para mandar SMS'}
-         style={styles.input}
-         keyboardType={'numeric'}
-       />
        <Text style={{color: 'green'}}>Correos</Text>
        <TextInput
          value={this.state.emails}
@@ -38,6 +31,16 @@ constructor(props) {
          style={styles.input}
     
        />
+       <Text
+          style={{marginTop:30}}
+          onPress={() => {
+            Linking.openURL(
+            //  'http://api.whatsapp.com/send?phone=+521' + this.state.mobile_no
+              'https://wa.me/521'+this.state.telefono +'?text=Me%20interesa%20in%20el%20auto%20que%20vendes'
+            );
+          }}>
+         Contactanos vía Whatsapp
+        </Text>
  
         {/*To make a phone call phonecall(phoneNumber, prompt) */}
         <TouchableOpacity 

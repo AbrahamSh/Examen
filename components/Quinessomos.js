@@ -3,8 +3,11 @@ import { Text, View, StyleSheet } from 'react-native';
 
 export default function Quienessomos() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Quienes Somos</Text>
+    <View style={{padding:20, alignItems: 'center'}}>
+      <Text style={{fontWeight:'bold', fontSize:30}}>Quienes Somos</Text>
+  <Text>{'\n'}</Text>
+      <Text>Somos un taller mecánico que repara cualquier tipo de problemas que existan</Text>
+      
   
     </View>
   );
