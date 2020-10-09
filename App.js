@@ -3,11 +3,13 @@ import { Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Constants from 'expo-constants';
-import Quienessomos from './components/Quienessomos.js';
-import Contactanos from './components/Contactanos.js';
-import Ubicanos from './components/Ubicanos.js';
+import Quienessomos from './components/Quinessomos';
+import Contactanos from './components/Contactanos';
+import Ubicanos from './components/Ubicanos';
 
 const Tab = createBottomTabNavigator();
+
+
 
 export default function App() {
   return (
