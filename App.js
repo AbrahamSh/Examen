@@ -14,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Quienes Somos" component={Quienessomos} />
-        <Tab.Screen name="Contactanos" component={Contactanos} />
+        <Tab.Screen name="Contáctanos" component={Contactanos} />
          <Tab.Screen name="Ubicanos" component={Ubicanos} />
       </Tab.Navigator>
     </NavigationContainer>

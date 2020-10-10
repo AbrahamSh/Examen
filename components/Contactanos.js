@@ -1,81 +1,71 @@
 import  React, {Component} from 'react';
-import { TextInput } from 'react-native';
-import {StyleSheet, Text, View, TouchableOpacity,Linking} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,Linking,Image} from 'react-native';
 import Communications from 'react-native-communications';
+import { Header } from 'react-native-elements';
 // either import the whole module and call as Communications.phonecall('0123456789', true)
 // or can import single methods and call straight via the method name
 // import { web, phonecall } from 'react-native-communications';
 // e.g. onPress={() => { phonecall('0123456789', true) }}
- 
+const CustomIcon=()=>{
+  return(
+    <Image source={require('../assets/Logo.png')}
+      style={{height:65,widht:65,resizeMode:"contain"}}/>
+  );
+}
 export default class Contactanos extends Component{
+
 constructor(props) {
    super(props);
    this.state = {
      telefono: '5540560365',
-     emails:'tallerdebicicletas@re.com'
+     emails:'contacto@gamerepair.com'
    };
  }
-
-
   render() {
     return (
       
-      <View style={styles.container}>
-        <Text style={styles.headingStyle}>Ejemplo de  React Native Communication</Text>
-        
-       <Text style={{color: 'green'}}>Correos</Text>
-       <TextInput
-         value={this.state.emails}
-         onChangeText={(emails) => this.setState({  emails  })}
-         placeholder={'Escribe correos'}
-         style={styles.input}
-    
-       />
+      <View style={{alignItems: 'center', flex:1,backgroundColor:'dodgerblue'}}>
+        <Header centerComponent={{ text: 'Game Repair', style: { color: '#fff',fontSize:20 } }}
+      leftComponent={()=>CustomIcon()}
+      containerStyle={{
+        backgroundColor: '#f00',
+        justifyContent: 'space-around'
+      }}/>
+      
        <Text
-          style={{marginTop:30}}
+          style={{width : 300,
+            backgroundColor:"#009933",
+            marginTop : 20,
+            fontSize: 15,
+            textAlign : 'left',
+            padding : 20,
+            color : '#ffffff'
+          }}
           onPress={() => {
             Linking.openURL(
             //  'http://api.whatsapp.com/send?phone=+521' + this.state.mobile_no
-              'https://wa.me/521'+this.state.telefono +'?text=Me%20interesa%20in%20el%20auto%20que%20vendes'
+              'https://wa.me/521'+this.state.telefono +'?text=Hola%20me%20gustaria%20obtener%20mas%20informacion%20sobre'
             );
           }}>
-         Contactanos vía Whatsapp
+         Contáctanos vía WhatsApp
         </Text>
- 
-        {/*To make a phone call phonecall(phoneNumber, prompt) */}
-        <TouchableOpacity 
-          style = {styles.button}
-          onPress={() => Communications.phonecall(this.state.telefono, true)}>
-            <Text style={styles.text}>
-              Realizar llamada telefónica
-            </Text>
-        </TouchableOpacity>
- 
+  
         {/*To send the mail function(to, cc, bcc, subject, body)*/}
         <TouchableOpacity 
           style = {styles.button}
-          onPress={() => Communications.email(this.state.emails.split(',') ,null,null,'Demo Subject','Demo Content for the mail')}>
+          onPress={() => Communications.email(this.state.emails.split(',') ,null,null,'Quiero información','Hola me gustaría obtener más información sobre')}>
           {/*email(to, cc, bcc, subject, body)*/}
             <Text style={styles.text}>
-              Enviar Correo
+            Envianos un Correo
             </Text>
         </TouchableOpacity>
  
         {/*To send the text message function(phoneNumber = null, body = null)*/}
         <TouchableOpacity 
           style = {styles.button}
-          onPress={() => Communications.text(this.state.telefono, 'Demo SMS desde REact native')}>
+          onPress={() => Communications.text(this.state.telefono, 'Hola me gustaría obtener más información sobre')}>
             <Text style={styles.text}>
-              Send a Text/iMessage
-            </Text>
-        </TouchableOpacity>
- 
-        {/*To open a web URL function(address = null)*/}
-        <TouchableOpacity 
-          style = {styles.button}
-          onPress={() => Communications.web('https://www.anahuac.mx')}>
-            <Text style={styles.text}>
-             Abrir www.anahuac.mx
+              Envianos un SMS
             </Text>
         </TouchableOpacity>
       </View>
@@ -84,33 +74,21 @@ constructor(props) {
 }
  
 var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(253,253,253)',
-    padding: 12,
-  },
-  headingStyle: {
-    fontSize: 25,
-    textAlign: 'center',
-    padding: 30,
-  },
+
   button: {
     justifyContent: 'center',
     width : 300,
-    backgroundColor:"#307cae",
+    backgroundColor:"#009933",
     marginTop : 20,
+    fontSize: 18,
+    textAlign : 'left',
+    padding : 10,
+    color : '#ffffff'
   },
   text: {
     fontSize: 18,
     textAlign : 'left',
     padding : 10,
     color : '#ffffff',
-  },
-  input: {
-    fontSize: 12,
-    textAlign : 'left',
-    padding : 10,
-    color : '#000',
-  },
-   
+  }   
 });
