@@ -9,8 +9,6 @@ import Ubicanos from './components/Ubicanos';
 
 const Tab = createBottomTabNavigator();
 
-
-
 export default function App() {
   return (
     <NavigationContainer>

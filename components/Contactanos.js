@@ -12,7 +12,7 @@ constructor(props) {
    super(props);
    this.state = {
      telefono: '5540560365',
-     emails:''
+     emails:'tallerdebicicletas@re.com'
    };
  }
 
