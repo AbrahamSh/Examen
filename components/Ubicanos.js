@@ -23,6 +23,15 @@ export default function Ubicanos() {
      title='UAMN'
      image={require('../assets/favicon.png')}
      />
+    <Marker
+     coordinate={{
+       latitude:19.4018032,
+       longitude:-99.2640348
+     }}
+     description='Anahuac México Norte'
+     title='UAMN'
+     image={require('../assets/Logo.png')}
+     />
      </MapView>
     </View>
   );

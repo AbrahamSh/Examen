@@ -6,7 +6,7 @@ export default function Quienessomos() {
   const CustomIcon=()=>{
     return(
       <Image source={require('../assets/Logo.png')}
-        style={{height:65,widht:65,resizeMode:"contain"}}/>
+        style={{height:65,width:80,resizeMode:"contain"}}/>
     );
   }
   const styles= StyleSheet.create({
@@ -19,7 +19,7 @@ export default function Quienessomos() {
   return (
     <View style={{alignItems: 'center', flex:1,backgroundColor:'dodgerblue'}}>
       <Header centerComponent={{ text: 'Game Repair', style: { color: '#fff',fontSize:20 } }}
-      leftComponent={()=>CustomIcon()}
+      rightComponent={()=>CustomIcon()}
       containerStyle={{
         backgroundColor: '#f00',
         justifyContent: 'space-around'
@@ -33,8 +33,8 @@ export default function Quienessomos() {
         retro o que marca sean Atari, Sega, Nintendo, Sony o Microsoft.</Text>
         <Text>{'\n'}</Text>
         <Image source={{uri:'https://www.mediaplaynews.com/wp-content/uploads/2020/02/videogames-1-e1522270884482.jpg'}}
-        style={{height:300,widht:300,resizeMode:"auto"}}/>
-       <Text>{'\n'}</Text>
+        style={{height:300,width:300,resizeMode:"stretch",alignSelf:'center'}}/>
+        <Text>{'\n'}</Text>
         <Text style={styles.text}> 
         Realizamos servcios de limpieza, cambios de baterías a los cartuchos y consolas portátiles,
         remplazo de joysticks y botones de los controles.
@@ -44,7 +44,7 @@ export default function Quienessomos() {
         </Text>
         <Text>{'\n'}</Text>
         <Image source={{uri:'https://www.pieuvre.ca/wp-content/uploads/2017/02/ConsoleR%C3%A9paration.jpg'}}
-        style={{height:300,widht:300,resizeMode:"auto"}}/>
+        style={{height:300,width:300,resizeMode:"stretch",alignSelf:'center'}}/>
         <Text>{'\n'}</Text>
         <Text style={styles.text}> 
         Contamos con un personal 100% capacitado para entender y solucionar los 
@@ -53,10 +53,10 @@ export default function Quienessomos() {
         </Text>
         <Text>{'\n'}</Text>
         <Image source={{uri:'https://www.techstationglasgow.co.uk/wp-content/uploads/2019/09/Nintendo-Switch-Repair-730x356-1.jpg'}}
-        style={{height:300,widht:300,resizeMode:"auto"}}/>
+        style={{height:300,width:300,resizeMode:"stretch",alignSelf:'center'}}/>
         <Text>{'\n'}</Text>
         <Image source={{uri:'https://d3nevzfk7ii3be.cloudfront.net/igi/GJo6fsTpnpQpVVAY'}}
-        style={{height:300,widht:300,resizeMode:"auto"}}/>
+        style={{height:300,width:300,resizeMode:"stretch",alignSelf:'center'}}/>
         </ScrollView>
     </View>
   );
