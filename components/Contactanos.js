@@ -1,5 +1,5 @@
 import  React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity,Linking,Image} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,Linking,Image,ScrollView} from 'react-native';
 import Communications from 'react-native-communications';
 import { Header } from 'react-native-elements';
 import { FontAwesome5 } from '@expo/vector-icons'; 
@@ -27,16 +27,20 @@ constructor(props) {
     return (
       
       <View style={{alignItems: 'center', flex:1,backgroundColor:'dodgerblue'}}>
-        <Header centerComponent={{ text: 'Game Repair', style: { color: '#fff',fontSize:20 } }}
+        <Header centerComponent={{ text: 'Game Repair Workshop', style: { color: '#fff',fontSize:13, fontWeight:'bold' } }}
       rightComponent={()=>CustomIcon()}
       containerStyle={{
         backgroundColor: '#f00',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        paddingHorizontal:2
       }}/>
+       <ScrollView>
       <Text style={{fontWeight:'bold', fontSize:30, textAlign:'center'}}> Contáctanos</Text>
-    <Text>{'\n\n'}</Text>
+    
+    <Image source={require('../assets/MarioR.png')}
+        style={{height:150,width:150,resizeMode:"stretch",alignSelf:'center'}}/>
         <TouchableOpacity 
-          style = {styles.button}
+          style = {styles.what}
           onPress={() => {
             Linking.openURL(
             //  'http://api.whatsapp.com/send?phone=+521' + this.state.mobile_no
@@ -53,7 +57,7 @@ constructor(props) {
         </ TouchableOpacity>
         {/*To send the mail function(to, cc, bcc, subject, body)*/}
         <TouchableOpacity 
-          style = {styles.button}
+          style = {styles.correo}
           onPress={() => Communications.email(this.state.emails.split(',') ,null,null,'Quiero información','Hola me gustaría obtener más información sobre')}>
          
             <Text style={styles.text}>
@@ -65,7 +69,7 @@ constructor(props) {
             
         </ TouchableOpacity>
         <TouchableOpacity 
-          style = {styles.button}
+          style = {styles.sms}
           onPress={() => Communications.text(this.state.telefono, 'Hola me gustaría obtener más información sobre')}>
             <Text style={styles.text}>
               Envianos un SMS
@@ -74,6 +78,7 @@ constructor(props) {
             <FontAwesome5 name="sms" size={35} color="black" />
             </View>
         </TouchableOpacity>
+        </ScrollView>
       </View>
     );
   }
@@ -81,10 +86,28 @@ constructor(props) {
  
 var styles = StyleSheet.create({
 
-  button: {
+  what: {
     justifyContent: 'center',
     width : 300,
     backgroundColor:"#009933",
+    marginTop : 20,
+    textAlign : 'left',
+    padding : 10,
+    color : '#ffffff'
+  },
+  correo: {
+    justifyContent: 'center',
+    width : 300,
+    backgroundColor:"olivedrab",
+    marginTop : 20,
+    textAlign : 'left',
+    padding : 10,
+    color : '#ffffff'
+  },
+  sms: {
+    justifyContent: 'center',
+    width : 300,
+    backgroundColor:"#ffcc00",
     marginTop : 20,
     textAlign : 'left',
     padding : 10,
